@@ -6,6 +6,7 @@ const path = require('path');
 
 const app = express();
 
+// Connexion à la base de données 
 mongoose.connect('mongodb+srv://Projet6_OC:Mcpelb1997@cluster0.wt2tyx3.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -14,6 +15,7 @@ mongoose.connect('mongodb+srv://Projet6_OC:Mcpelb1997@cluster0.wt2tyx3.mongodb.n
 
 app.use(express.json());
 
+// Middleware permettant de prévenir les erreurs CORS
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
