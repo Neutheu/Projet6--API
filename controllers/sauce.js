@@ -110,13 +110,13 @@ exports.likeSauce = (req, res, next) => {
             sauce.usersLiked.push(req.body.userId);
             sauce.likes++;
             sauce.save()
-              .then(() => { res.status(201).json({message: 'Sauce enregistrée'})})
+              .then(() => { res.status(201).json({message: 'Like enregistré'})})
               .catch(error => { res.status(400).json( { error })});
           } else {
             sauce.usersLiked.push(req.body.userId);
             sauce.likes++;
             sauce.save()
-              .then(() => { res.status(201).json({message: 'Sauce enregistrée'})})
+              .then(() => { res.status(201).json({message: 'Like enregistré'})})
               .catch(error => { res.status(400).json( { error })});
             }
               
@@ -131,13 +131,13 @@ exports.likeSauce = (req, res, next) => {
             sauce.usersDisliked.push(req.body.userId);
             sauce.dislikes++;
             sauce.save()
-              .then(() => { res.status(201).json({message: 'Sauce enregistrée'})})
+              .then(() => { res.status(201).json({message: 'Dislike enregistré'})})
               .catch(error => { res.status(400).json( { error })});
           } else {
             sauce.usersDisliked.push(req.body.userId);
             sauce.dislikes++;
             sauce.save()
-              .then(() => { res.status(201).json({message: 'Sauce enregistrée'})})
+              .then(() => { res.status(201).json({message: 'Dislike enregistré'})})
               .catch(error => { res.status(400).json( { error })});
             }
 
@@ -147,13 +147,13 @@ exports.likeSauce = (req, res, next) => {
             sauce.dislikes--;
             sauce.usersDisliked.splice(sauce.usersDisliked.indexOf(req.body.userId),1);
             sauce.save()
-              .then(() => { res.status(201).json({message: 'Sauce enregistrée'})})
+              .then(() => { res.status(201).json({message: 'Dislike enregistré'})})
               .catch(error => { res.status(400).json( { error })});
           } else if (sauce.usersLiked.includes(req.body.userId)) {
             sauce.likes--;
             sauce.usersLiked.splice(sauce.usersLiked.indexOf(req.body.userId),1);
             sauce.save()
-              .then(() => { res.status(201).json({message: 'Sauce enregistrée'})})
+              .then(() => { res.status(201).json({message: 'Like enregistré'})})
               .catch(error => { res.status(400).json( { error })});
           }
         }
